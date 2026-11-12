@@ -18,6 +18,12 @@ The caveat is that this is one small site, built with the semantic layer, tested
 
 *"Find a vegetarian dessert under ₹250 and add two of the cheapest." The same model handles it twice on the same page. The panel at the bottom left shows live model calls, input tokens and cost; it is hidden from the model's screenshots. In this recording the semantic layer used 4 calls and $0.022; computer use took 9 calls, 6× the input tokens and $0.076. Both stopped at the confirmation and left Confirm to the guest. [Full-quality MP4](media/demo.mp4).*
 
+**The same layer, driven by voice.** Here a guest talks to the site through gpt-realtime-2.1-mini over WebRTC. They ask for desserts, then about the gulab jamun, then cut in mid-answer to ask for a vegetarian, not spicy main under ₹400, and finally order two. The host stops talking when interrupted, filters and highlights Penne Alfredo, and opens the confirmation for 2 × ₹778 without pressing Confirm. The debug panel on the right shows each tool call and its latency. The guest's voice is synthesized and played into a virtual microphone; the host's replies are live.
+
+![Voice demo](media/voice-demo.gif)
+
+*The animation is silent; the [video with sound](media/voice-demo.mp4) has both voices.*
+
 ## The problem
 
 AI agents use websites the way a stranger uses a foreign keyboard: by looking and guessing. Websites are built for human eyes, so an agent has to reconstruct meaning the site already had and threw away when it rendered the page.
@@ -105,6 +111,8 @@ The voice-only acceptance test (interrupting the host mid-sentence) has no text 
 
 Per task, the semantic layer read 4.5× fewer input tokens than the accessibility-tree agent and 2.9× fewer than computer use, and cost 2.8× and 4.6× less.
 
+![Comparison of cost, input tokens, model calls and median time](media/comparison.svg)
+
 The gap depends on how many steps a task takes. On one-step questions the three are close, and B and C sometimes read fewer tokens than A because they answered without acting (B on T2, C on T3 and T6, all of which then failed). Each step an agent takes re-reads the page: a 9,000-token snapshot for B, a screenshot for C. A reads a few hundred tokens of screen summary instead, so its cost barely grows with the number of steps. Per-task numbers are in [`bench/results/combined.by-task.csv`](../bench/results/combined.by-task.csv).
 
 | | Input tokens per task | Of which not cached | Output tokens | Cost per 1,000 tasks | Same, without caching |
@@ -175,6 +183,6 @@ The harness is [`bench/run.ts`](../bench/run.ts); it needs Node 20.12+, an Azure
 2. In `.env`, set `AZURE_RESOURCE` and `AZURE_OPENAI_API_KEY`; set `BENCH_MODEL` if your deployment is not named `gpt-5.4`.
 3. `npx tsx bench/run.ts --approaches a,b,c --tasks all --runs 10 --name main` starts the app on port 5174, runs every task, and writes one JSON line per run to `bench/results/main.jsonl`, with screenshots of failures in `bench/results/fails/`.
 4. `npx tsx bench/summarize.ts bench/results/main.jsonl` prints the tables in this article and writes a CSV per task. Set `PRICE_INPUT`, `PRICE_CACHED` and `PRICE_OUTPUT` (USD per 1M tokens) to price a different deployment.
-5. `npx tsx bench/demo.ts` re-records the demo video (`--task T3` for another task).
+5. `npx tsx bench/demo.ts` re-records the demo video (`--task T3` for another task), `npx tsx bench/voice-demo.ts` the voice demo, and `npx tsx bench/chart.ts` the comparison chart.
 
 Each JSON line records the approach, task, pass or fail with the reason, token counts from the API's `usage` field, model calls, latency, and every action the agent took.

@@ -12,6 +12,16 @@ reading the page's accessibility tree or its screenshots.
 calls, input tokens and cost. Full-quality video: [docs/media/demo.mp4](docs/media/demo.mp4).
 Re-record with `npx tsx bench/demo.ts`.*
 
+**Voice.** The same layer driven by speech through gpt-realtime-2.1-mini over WebRTC: navigate,
+open a dish, interrupt the host mid-answer, filter, and order (the host opens the confirmation and
+leaves Confirm to the guest). The debug panel shows each tool call and its latency.
+
+![Voice demo](docs/media/voice-demo.gif)
+
+*The GIF is silent; [docs/media/voice-demo.mp4](docs/media/voice-demo.mp4) has both voices. The guest's voice
+is synthesized with macOS `say` and played into a virtual microphone; the host is live.
+Re-record with `npx tsx bench/voice-demo.ts`.*
+
 **Read the article:** [docs/article.md](docs/article.md)
 ([shareable doc](https://claude.ai/artifact/NxnvthVzVdSRWSUmG8eneF)).
 
@@ -20,6 +30,8 @@ Re-record with `npx tsx bench/demo.ts`.*
 | A. Semantic layer | **70/70** | **7,809** | **$4.47** | **3.2 s** |
 | B. Accessibility tree | 58/70 | 35,396 | $12.62 | 3.3 s |
 | C. Computer use | 48/70 | 22,844 | $20.56 | 8.9 s |
+
+![Comparison of cost, input tokens, model calls and median time](docs/media/comparison.svg)
 
 Raw per-run results are in [`bench/results/`](bench/results) (`combined.jsonl`, `combined.summary.md`).
 
@@ -229,4 +241,5 @@ failure screenshots to `bench/results/fails/`. Prices default to Azure Global St
 `PRICE_CACHED`, `PRICE_OUTPUT`. A full 210-run pass took about an hour and roughly $10–15.
 
 `npx tsx bench/demo.ts` records `bench/results/demo/demo.webm`: the same request run by `a` then `c`
-with a live token and cost overlay that the model never sees.
+with a live token and cost overlay that the model never sees. `npx tsx bench/voice-demo.ts` records the
+voice demo with sound, and `npx tsx bench/chart.ts` redraws `docs/media/comparison.svg` from the results.

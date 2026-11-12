@@ -15,3 +15,4 @@ bench/results/fails
 bench/results/pilot*
 # raw demo recording (encoded copies live in docs/media)
 bench/results/demo
+bench/results/voice-demo

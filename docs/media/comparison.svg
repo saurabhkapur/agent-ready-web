@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 368" width="760" height="368" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="12" role="img" aria-label="Comparison of cost, tokens, calls and time by approach">
+<rect width="760" height="368" fill="#ffffff"/>
+<text x="16" y="30" font-size="16" font-weight="600" fill="#0b0b0b">Computer use costs 4.6× the semantic layer and takes 2.8× as long</text>
+<text x="16" y="52" fill="#52514e">The accessibility tree reads 4.5× the tokens. Per task, 70 runs each, gpt-5.4 on Azure; lower is better.</text>
+<text x="16" y="100" font-size="13" font-weight="600" fill="#0b0b0b">Cost per 1,000 tasks</text>
+<line x1="136" x2="136" y1="110" y2="192" stroke="#b5b4ad"/>
+<text x="128" y="126" text-anchor="end" fill="#0b0b0b">Semantic layer</text>
+<rect x="136" y="114" width="32.6" height="16" rx="2" fill="#2a78d6"><title>Semantic layer, Cost per 1,000 tasks: $4.47</title></rect>
+<text x="174.605512052316" y="126" fill="#0b0b0b" font-weight="600">$4.47</text>
+<text x="128" y="152" text-anchor="end" fill="#52514e">Accessibility tree</text>
+<rect x="136" y="140" width="92.1" height="16" rx="2" fill="#c8c7bd"><title>Accessibility tree, Cost per 1,000 tasks: $12.62</title></rect>
+<text x="234.07894372945333" y="152" fill="#52514e" font-weight="400">$12.62 · 2.8×</text>
+<text x="128" y="178" text-anchor="end" fill="#52514e">Computer use</text>
+<rect x="136" y="166" width="150.0" height="16" rx="2" fill="#e2e1dc"><title>Computer use, Cost per 1,000 tasks: $20.56</title></rect>
+<text x="292" y="178" fill="#52514e" font-weight="400">$20.56 · 4.6×</text>
+<text x="388" y="100" font-size="13" font-weight="600" fill="#0b0b0b">Input tokens per task</text>
+<line x1="508" x2="508" y1="110" y2="192" stroke="#b5b4ad"/>
+<text x="500" y="126" text-anchor="end" fill="#0b0b0b">Semantic layer</text>
+<rect x="508" y="114" width="33.1" height="16" rx="2" fill="#2a78d6"><title>Semantic layer, Input tokens per task: 7,809</title></rect>
+<text x="547.0929414091352" y="126" fill="#0b0b0b" font-weight="600">7,809</text>
+<text x="500" y="152" text-anchor="end" fill="#52514e">Accessibility tree</text>
+<rect x="508" y="140" width="150.0" height="16" rx="2" fill="#c8c7bd"><title>Accessibility tree, Input tokens per task: 35,396</title></rect>
+<text x="664" y="152" fill="#52514e" font-weight="400">35,396 · 4.5×</text>
+<text x="500" y="178" text-anchor="end" fill="#52514e">Computer use</text>
+<rect x="508" y="166" width="96.8" height="16" rx="2" fill="#e2e1dc"><title>Computer use, Input tokens per task: 22,844</title></rect>
+<text x="610.8092053485303" y="178" fill="#52514e" font-weight="400">22,844 · 2.9×</text>
+<text x="16" y="230" font-size="13" font-weight="600" fill="#0b0b0b">Model calls per task</text>
+<line x1="136" x2="136" y1="240" y2="322" stroke="#b5b4ad"/>
+<text x="128" y="256" text-anchor="end" fill="#0b0b0b">Semantic layer</text>
+<rect x="136" y="244" width="92.8" height="16" rx="2" fill="#2a78d6"><title>Semantic layer, Model calls per task: 2.3</title></rect>
+<text x="234.83018867924528" y="256" fill="#0b0b0b" font-weight="600">2.3</text>
+<text x="128" y="282" text-anchor="end" fill="#52514e">Accessibility tree</text>
+<rect x="136" y="270" width="96.2" height="16" rx="2" fill="#c8c7bd"><title>Accessibility tree, Model calls per task: 2.4</title></rect>
+<text x="238.22641509433961" y="282" fill="#52514e" font-weight="400">2.4 · 1.0×</text>
+<text x="128" y="308" text-anchor="end" fill="#52514e">Computer use</text>
+<rect x="136" y="296" width="150.0" height="16" rx="2" fill="#e2e1dc"><title>Computer use, Model calls per task: 3.8</title></rect>
+<text x="292" y="308" fill="#52514e" font-weight="400">3.8 · 1.6×</text>
+<text x="388" y="230" font-size="13" font-weight="600" fill="#0b0b0b">Median time per task</text>
+<line x1="508" x2="508" y1="240" y2="322" stroke="#b5b4ad"/>
+<text x="500" y="256" text-anchor="end" fill="#0b0b0b">Semantic layer</text>
+<rect x="508" y="244" width="54.4" height="16" rx="2" fill="#2a78d6"><title>Semantic layer, Median time per task: 3.2 s</title></rect>
+<text x="568.4011706438541" y="256" fill="#0b0b0b" font-weight="600">3.2 s</text>
+<text x="500" y="282" text-anchor="end" fill="#52514e">Accessibility tree</text>
+<rect x="508" y="270" width="55.4" height="16" rx="2" fill="#c8c7bd"><title>Accessibility tree, Median time per task: 3.3 s</title></rect>
+<text x="569.3635749662315" y="282" fill="#52514e" font-weight="400">3.3 s · 1.0×</text>
+<text x="500" y="308" text-anchor="end" fill="#52514e">Computer use</text>
+<rect x="508" y="296" width="150.0" height="16" rx="2" fill="#e2e1dc"><title>Computer use, Median time per task: 8.9 s</title></rect>
+<text x="664" y="308" fill="#52514e" font-weight="400">8.9 s · 2.8×</text>
+<text x="16" y="352" font-size="11" fill="#7a7974">Source: bench/results/main.rescored.jsonl. Prices: Azure Global Standard gpt-5.4, $2.50 input / $0.25 cached / $15 output per 1M tokens.</text>
+</svg>
