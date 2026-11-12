@@ -1,0 +1,17 @@
+node_modules
+dist
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+*.tsbuildinfo
+dist-server
+
+bench/results/fails
+# stray copy of .env
+/env
+# pilot runs (superseded by main/a2)
+bench/results/pilot*
+# raw demo recording (encoded copies live in docs/media)
+bench/results/demo
